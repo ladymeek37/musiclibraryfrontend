@@ -11,13 +11,13 @@ function App() {
 },[])
 
   async function getAllSongs(){
-    let response = await axios.get(`https://cors-anywhere.herokuapp.com/musiclibrarybackend-env.eba-atv3bdfb.us-east-2.elasticbeanstalk.com/api/music/`);
+    let response = await axios.get(`https://music-library-proxy.ladyjmeek.workers.dev/?targetUrl=http://musiclibrarybackend-env.eba-atv3bdfb.us-east-2.elasticbeanstalk.com/api/music/`);
     setSongs(response.data);
   }
   
   async function AddNewMusic(newSong){
 
-    let response = await axios.post(`https://cors-anywhere.herokuapp.com/musiclibrarybackend-env.eba-atv3bdfb.us-east-2.elasticbeanstalk.com/api/music/`,newSong);
+    let response = await axios.post(`https://music-library-proxy.ladyjmeek.workers.dev/?targetUrl=http://musiclibrarybackend-env.eba-atv3bdfb.us-east-2.elasticbeanstalk.com/api/music/`,newSong);
     if (response.status === 201) {
       getAllSongs()
     }
