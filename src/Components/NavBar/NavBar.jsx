@@ -10,7 +10,7 @@ const NavBar = (props) => {
         <Container className={"container-fluid"} >
           <Navbar.Brand href="#home" style={{"color": "white"}} >
             <Headphones height='3rem'/>{' '}
-          The Magnificent Music Library!
+          Welcome to The Magnificent Music Library!
           </Navbar.Brand>
         </Container>
       </Navbar>
