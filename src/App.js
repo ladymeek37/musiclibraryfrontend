@@ -4,7 +4,6 @@ import MusicTable from './Components/MusicTable/MusicTable';
 import MusicForm from './Components/MusicForm/MusicForm';
 import NavBar from './Components/NavBar/NavBar';
 import { Container } from 'react-bootstrap'
-import { URL_HOST } from './urlhost';
 function App() {
   const [songs, setSongs] = useState([])
   useEffect(() => {
@@ -12,13 +11,13 @@ function App() {
 },[])
 
   async function getAllSongs(){
-    let response = await axios.get(`${URL_HOST}/api/music/`);
+    let response = await axios.get(`https://cors-anywhere.herokuapp.com/musiclibrarybackend-env.eba-atv3bdfb.us-east-2.elasticbeanstalk.com/api/music/`);
     setSongs(response.data);
   }
   
   async function AddNewMusic(newSong){
 
-    let response = await axios.post(`${URL_HOST}/api/music/`,newSong);
+    let response = await axios.post(`https://cors-anywhere.herokuapp.com/musiclibrarybackend-env.eba-atv3bdfb.us-east-2.elasticbeanstalk.com/api/music/`,newSong);
     if (response.status === 201) {
       getAllSongs()
     }
